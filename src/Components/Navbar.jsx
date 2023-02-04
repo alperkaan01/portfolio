@@ -14,7 +14,7 @@ import {
 
 } from "./NavbarElements";
 
-import tl from "../../../img/tl.png";
+import tl from "../img/tl.png";
 
 import { animateScroll as scroll} from 'react-scroll'
 

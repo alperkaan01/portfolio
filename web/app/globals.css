@@ -50,6 +50,14 @@
 }
 
 @layer base {
+  * {
+    font-family: inherit;
+  }
+  
+  html {
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
   body {
     @apply text-foreground;
     background-color: var(--color-background);

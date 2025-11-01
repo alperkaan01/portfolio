@@ -51,6 +51,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: var(--color-background);
   }
 }

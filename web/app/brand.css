@@ -1,0 +1,10 @@
+:root {
+    --color-primary:       #2563EB;   /* bright royal blue */
+    --color-accent:        #06B6D4;   /* electric teal/cyan */
+    --gradient-primary:    linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
+    --color-background:    #F9FAFB;   /* soft white */
+    --color-text-primary:  #0F172A;   /* slate 900 */
+    --color-text-secondary:#475569;   /* slate 600 */
+    --color-highlight:     #FACC15;   /* subtle yellow accent */
+  }
+  

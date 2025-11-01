@@ -1,10 +1,9 @@
-import type { Metadata } from 'next';
 import './globals.css';
+import './brand.css';
+import Navbar from '@/components/navbar/navbar';
+import { siteMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Personal portfolio website',
-};
+export const metadata = siteMetadata;
 
 export default function RootLayout({
   children,
@@ -13,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

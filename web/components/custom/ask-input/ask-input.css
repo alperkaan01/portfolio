@@ -5,8 +5,15 @@
   align-items: center;
 }
 
-.ask-input__container {
+.ask-input__content {
+  width: 100%;
   max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ask-input__container {
   width: 100%;
   display: flex;
   align-items: center;
@@ -35,6 +42,7 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   pointer-events: none;
   opacity: 0;
@@ -106,14 +114,73 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+.ask-input__starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.ask-input__starter {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  opacity: 0.7;
+}
+
+.ask-input__starter::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-text-primary);
+  transition: width 0.2s ease;
+}
+
+.ask-input__starter:hover {
+  color: var(--color-text-primary);
+  opacity: 1;
+}
+
+.ask-input__starter:hover::before {
+  width: 100%;
+}
+
+.ask-input__starter:active {
+  opacity: 0.8;
+}
+
 @media (max-width: 48rem) {
   .ask-input__wrapper {
     padding: 1.5rem 1rem;
   }
   
+  .ask-input__content {
+    gap: 0.75rem;
+  }
+  
   .ask-input__container {
     border-radius: 1.25rem;
     padding: 0.625rem 0.875rem;
+  }
+  
+  .ask-input__starters {
+    gap: 0.375rem;
+  }
+  
+  .ask-input__starter {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+    border-radius: 0.75rem;
   }
 }
 

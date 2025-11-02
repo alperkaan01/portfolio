@@ -1,0 +1,25 @@
+.marquee-section__wrapper {
+  padding-bottom: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.marquee-section__container {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.marquee-section__item {
+  min-height: 3rem;
+  min-width: 3rem;
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+

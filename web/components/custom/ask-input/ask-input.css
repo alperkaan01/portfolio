@@ -1,0 +1,119 @@
+.ask-input__wrapper {
+  padding: 2rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ask-input__container {
+  max-width: 56rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 1.5rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.08),
+    0 2px 8px 0 rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.ask-input__container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ask-input__container:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.12),
+    0 4px 12px 0 rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(255, 255, 255, 0.45);
+}
+
+.ask-input__container:hover::before {
+  opacity: 1;
+}
+
+.ask-input__container:focus-within {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 12px 40px 0 rgba(37, 99, 235, 0.15),
+    0 4px 12px 0 rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(37, 99, 235, 0.25);
+  border-top-color: rgba(37, 99, 235, 0.4);
+}
+
+.ask-input__textarea {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  resize: none !important;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  padding: 0 !important;
+  min-height: 1.5rem !important;
+  max-height: 6rem;
+  box-shadow: none !important;
+}
+
+.ask-input__textarea::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.ask-input__button {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 0.75rem;
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.ask-input__button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  transform: translateX(2px);
+}
+
+.ask-input__button:active {
+  transform: translateX(3px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 48rem) {
+  .ask-input__wrapper {
+    padding: 1.5rem 1rem;
+  }
+  
+  .ask-input__container {
+    border-radius: 1.25rem;
+    padding: 0.625rem 0.875rem;
+  }
+}
+

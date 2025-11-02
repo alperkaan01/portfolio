@@ -1,6 +1,6 @@
 import './globals.css';
 import './brand.css';
-import Navbar from '@/components/navbar/navbar';
+import Navbar from '@/components/custom/navbar/navbar';
 import { siteMetadata } from '@/lib/metadata';
 import { Inter } from 'next/font/google';
 

@@ -28,7 +28,7 @@ export default function Hero() {
 
           <div className="hero-new__cta-group">
             <Link href="#contact" className="hero-new__cta-primary">
-              Book a Consultation
+              Let's Talk
               <ArrowRight className="hero-new__cta-icon" />
             </Link>
             <Link href="#projects" className="hero-new__cta-secondary">

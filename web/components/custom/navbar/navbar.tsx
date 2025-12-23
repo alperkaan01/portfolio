@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ThemeToggle } from './theme-toggle';
 import './navbar.css';
@@ -7,13 +6,6 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar__brand">
-        <Image
-          src="/assets/alperkaan-logo.png"
-          alt="Alper Odabasoglu Logo"
-          width={64}
-          height={64}
-          className="navbar__logo"
-        />
         <span className="navbar__name">Alper Odabasoglu</span>
       </div>
       <div className="navbar__links">

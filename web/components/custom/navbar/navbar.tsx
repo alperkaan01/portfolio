@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ThemeToggle } from './theme-toggle';
 import './navbar.css';
 
 export default function Navbar() {
@@ -31,6 +32,7 @@ export default function Navbar() {
         <Link href="#contact" className="navbar__link">
           Contact
         </Link>
+        <ThemeToggle />
       </div>
     </nav>
   );

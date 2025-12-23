@@ -1,6 +1,7 @@
 import './globals.css';
 import './brand.css';
 import Navbar from '@/components/custom/navbar/navbar';
+import { ThemeProvider } from '@/components/theme-provider';
 import { siteMetadata } from '@/lib/metadata';
 import { Inter, IBM_Plex_Mono } from 'next/font/google';
 
@@ -25,10 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`} suppressHydrationWarning>
       <body>
-        <Navbar />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

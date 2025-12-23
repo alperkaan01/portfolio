@@ -1,0 +1,70 @@
+/* Trusted Tech Stack Section */
+.marquee-section-new {
+  width: 100%;
+  padding: 3rem 2rem;
+  background: hsl(var(--surface) / 0.5);
+  border-top: 1px solid hsl(var(--border));
+}
+
+.marquee-section-new__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.marquee-section-new__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.marquee-section-new__marquee {
+  width: 100%;
+}
+
+.marquee-section-new__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  height: 4rem;
+}
+
+.marquee-section-new__logo {
+  width: auto;
+  height: 2.5rem;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: all 0.3s ease;
+}
+
+.marquee-section-new__logo:hover {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
+}
+
+.dark .marquee-section-new__logo {
+  filter: grayscale(100%) opacity(0.4) brightness(1.5);
+}
+
+.dark .marquee-section-new__logo:hover {
+  filter: grayscale(0%) opacity(1) brightness(1);
+}
+
+@media (max-width: 640px) {
+  .marquee-section-new {
+    padding: 2rem 1rem;
+  }
+
+  .marquee-section-new__logo {
+    height: 2rem;
+  }
+
+  .marquee-section-new__item {
+    padding: 0 1.5rem;
+    height: 3rem;
+  }
+}

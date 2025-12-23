@@ -1,2 +1,3 @@
 # portfolio
-<img width="1600" height="920" alt="image" src="https://github.com/user-attachments/assets/ab55e99d-9c64-4566-9c65-b54b23c5cec7" />
+<img width="1710" height="984" alt="image" src="https://github.com/user-attachments/assets/2a9ae048-562d-46f4-b8a9-23a614385083" />
+<img width="1710" height="984" alt="image" src="https://github.com/user-attachments/assets/7f583865-4a46-4c82-bd8f-0ad2fe0da32b" />

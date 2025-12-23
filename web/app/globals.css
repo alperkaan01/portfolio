@@ -3,49 +3,84 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light Mode - "The Civic Builder" (Organic & Paper) */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Surfaces */
+    --background: 40 33% 96%;        /* #F9F7F2 Soft Cream - Page background */
+    --surface: 0 0% 100%;            /* #FFFFFF Pure White - Cards/modals */
+    --foreground: 0 0% 18%;          /* #2D2D2D Deep Charcoal - Headings */
+
+    /* Borders & Dividers */
+    --border: 40 20% 88%;            /* #E6E2D8 Stone Grey */
+    --input: 40 20% 88%;
+    --ring: 33 44% 69%;
+
+    /* Text Hierarchy */
+    --muted: 30 7% 40%;              /* #6E665F Earth Taupe - Secondary text */
+    --muted-foreground: 30 7% 40%;
+
+    /* Brand Colors */
+    --primary: 33 44% 69%;           /* #D2B48C Warm Sand */
+    --primary-foreground: 0 0% 18%;
+    --secondary: 16 100% 66%;        /* #FF7F50 Sunset Orange */
+    --secondary-foreground: 0 0% 18%;
+    --accent: 16 100% 66%;
+    --accent-foreground: 0 0% 18%;
+
+    /* Semantic States */
+    --error: 20 100% 38%;            /* #C04000 Brick Red - Natural alert */
+    --destructive: 20 100% 38%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Cards & Popovers */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 18%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 18%;
+
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, #D2B48C 0%, #FF7F50 100%);
+
     --radius: 0.5rem;
   }
 
+  /* Dark Mode - "The AI Architect" (Neon & Void) */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Core Surfaces */
+    --background: 0 0% 2%;           /* #050505 Void Black - Page background */
+    --surface: 220 17% 7%;           /* #0F1115 Gunmetal - Cards/modals */
+    --foreground: 0 0% 88%;          /* #E0E0E0 Matrix White - Headings */
+
+    /* Borders & Dividers */
+    --border: 136 29% 16%;           /* #1A3320 Dark Code Green - Subtle outlines */
+    --input: 136 29% 16%;
+    --ring: 135 100% 50%;
+
+    /* Text Hierarchy */
+    --muted: 220 9% 46%;             /* #6B7280 Comment Grey - Secondary text */
+    --muted-foreground: 220 9% 46%;
+
+    /* Brand Colors */
+    --primary: 135 100% 50%;         /* #00FF41 Terminal Green */
+    --primary-foreground: 0 0% 2%;
+    --secondary: 180 100% 50%;       /* #00FFFF Electric Cyan */
+    --secondary-foreground: 0 0% 2%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 2%;
+
+    /* Semantic States */
+    --error: 346 100% 50%;           /* #FF003C Glitch Red - Digital alert */
+    --destructive: 346 100% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Cards & Popovers */
+    --card: 220 17% 7%;
+    --card-foreground: 0 0% 88%;
+    --popover: 220 17% 7%;
+    --popover-foreground: 0 0% 88%;
+
+    /* Gradients */
+    --gradient-brand: linear-gradient(90deg, #00FF41 0%, #00FFFF 100%);
   }
 }
 
@@ -53,13 +88,30 @@
   * {
     font-family: inherit;
   }
-  
+
   html {
-    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
-  
+
   body {
-    @apply text-foreground;
+    @apply text-foreground font-sans;
     background-color: var(--color-background);
+  }
+
+  /* Light Mode - Normal Sans-Serif Font */
+  /* Everything uses Inter by default */
+
+  /* Dark Mode - Code-Like Monospace Font */
+  .dark,
+  .dark * {
+    @apply font-mono;
+  }
+
+  /* Code Elements - Always Mono */
+  code,
+  pre,
+  kbd,
+  samp {
+    @apply font-mono;
   }
 }

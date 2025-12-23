@@ -1,10 +1,52 @@
+/* ========================================
+   PROFESSIONAL DUAL-THEME SYSTEM
+   Light: "The Civic Builder" (Organic & Paper)
+   Dark: "The AI Architect" (Neon & Void)
+   ======================================== */
+
+/* Light Mode - "The Civic Builder" */
 :root {
-    --color-primary:       #2563EB;   /* bright royal blue */
-    --color-accent:        #06B6D4;   /* electric teal/cyan */
-    --gradient-primary:    linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
-    --color-background:    #F9FAFB;   /* soft white */
-    --color-text-primary:  #0F172A;   /* slate 900 */
-    --color-text-secondary:#475569;   /* slate 600 */
-    --color-highlight:     #FACC15;   /* subtle yellow accent */
-  }
+    /* Core Surfaces */
+    --color-background:    #F9F7F2;   /* Soft Cream - Page background */
+    --color-surface:       #FFFFFF;   /* Pure White - Cards/modals */
+    --color-border:        #E6E2D8;   /* Stone Grey - Dividers */
+
+    /* Text Hierarchy */
+    --color-text-primary:  #2D2D2D;   /* Deep Charcoal - Headings */
+    --color-text-muted:    #6E665F;   /* Earth Taupe - Secondary text */
+
+    /* Brand Colors */
+    --color-primary:       #D2B48C;   /* Warm Sand */
+    --color-secondary:     #FF7F50;   /* Sunset Orange */
+    --color-highlight:     #FF7F50;   /* Sunset Orange */
+
+    /* Semantic States */
+    --color-error:         #C04000;   /* Brick Red - Natural alert */
+
+    /* Brand Gradient */
+    --gradient-brand:      linear-gradient(135deg, #D2B48C 0%, #FF7F50 100%);
+}
+
+/* Dark Mode - "The AI Architect" */
+.dark {
+    /* Core Surfaces */
+    --color-background:    #050505;   /* Void Black - Page background */
+    --color-surface:       #0F1115;   /* Gunmetal - Cards/modals */
+    --color-border:        #1A3320;   /* Dark Code Green - Subtle outlines */
+
+    /* Text Hierarchy */
+    --color-text-primary:  #E0E0E0;   /* Matrix White - Headings */
+    --color-text-muted:    #6B7280;   /* Comment Grey - Secondary text */
+
+    /* Brand Colors */
+    --color-primary:       #00FF41;   /* Terminal Green */
+    --color-secondary:     #00FFFF;   /* Electric Cyan */
+    --color-highlight:     #00FFFF;   /* Electric Cyan */
+
+    /* Semantic States */
+    --color-error:         #FF003C;   /* Glitch Red - Digital alert */
+
+    /* Brand Gradient */
+    --gradient-brand:      linear-gradient(90deg, #00FF41 0%, #00FFFF 100%);
+}
   

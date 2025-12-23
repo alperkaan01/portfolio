@@ -1,14 +1,26 @@
 import './hero.css';
 import { GradientText } from '@/components/ui/gradient-text';
+import { ThemeImage } from './theme-image';
 
 export default function Hero() {
   return (
     <section className="hero">
+      <div className="hero__image-container">
+        <ThemeImage
+          lightSrc="/assets/light-pp.png"
+          darkSrc="/assets/dark-pp.png"
+          alt="Alper Odabasoglu Profile"
+          width={300}
+          height={300}
+          className="hero__image"
+          priority
+        />
+      </div>
       <h1 className="hero__title">Automation & AI Systems</h1>
       <h2 className="hero__subtitle">
-        for <GradientText 
-          text="Real-World" 
-          gradient="linear-gradient(90deg, #2563EB 0%, #06B6D4 50%, #2563EB 100%)"
+        for <GradientText
+          text="Real-World"
+          gradient="var(--gradient-brand)"
           className="hero__highlight"
         /> Productivity
       </h2>

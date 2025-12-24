@@ -47,11 +47,11 @@
 }
 
 .dark .marquee-section-new__logo {
-  filter: grayscale(100%) opacity(0.4) brightness(1.5);
+  filter: grayscale(100%) opacity(0.4) brightness(1.5) invert(1);
 }
 
 .dark .marquee-section-new__logo:hover {
-  filter: grayscale(0%) opacity(1) brightness(1);
+  filter: grayscale(0%) opacity(1) brightness(1) invert(1);
 }
 
 @media (max-width: 640px) {

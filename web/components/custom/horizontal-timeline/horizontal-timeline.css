@@ -1,0 +1,351 @@
+/* Horizontal Timeline Styles */
+.horizontal-timeline {
+  width: 100%;
+  min-height: 100vh;
+  background: hsl(var(--background));
+  position: relative;
+  overflow: hidden;
+  padding-top: 2rem;
+}
+
+/* Header Section (Inside Pinned Area) */
+.horizontal-timeline__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto 2rem;
+  padding: 2rem 2rem 1rem;
+  flex-shrink: 0;
+}
+
+.horizontal-timeline__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+.horizontal-timeline__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.horizontal-timeline__arrow {
+  font-size: 1.75rem;
+  color: hsl(var(--primary));
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.horizontal-timeline__header:hover .horizontal-timeline__arrow {
+  opacity: 1;
+  transform: translateX(0.5rem);
+}
+
+/* Timeline Wrapper - Horizontal Container */
+.horizontal-timeline__wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-height: 70vh;
+  width: fit-content;
+  position: relative;
+  padding: 0 50vw 0 2rem;
+}
+
+/* Progress Line */
+.timeline-progress {
+  position: absolute;
+  bottom: 25%;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: hsl(var(--primary) / 0.3);
+  transform-origin: left;
+  z-index: 1;
+}
+
+.timeline-progress::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)),
+    hsl(var(--primary) / 0.5)
+  );
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+/* Timeline Cards Container */
+.timeline-cards {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 10%;
+}
+
+/* Individual Timeline Card */
+.timeline-card {
+  flex-shrink: 0;
+  width: 400px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px hsl(var(--primary) / 0.15);
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+/* Card Header */
+.timeline-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-card__year {
+  font-size: 2rem;
+  font-weight: 700;
+  color: hsl(var(--primary));
+  line-height: 1;
+}
+
+.timeline-card__company {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.timeline-card__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: hsl(var(--foreground));
+  line-height: 1.2;
+}
+
+.timeline-card__description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.5rem;
+}
+
+/* Achievements Section */
+.timeline-card__achievements {
+  margin-bottom: 1.5rem;
+}
+
+.timeline-card__achievements-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-card__achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-card__achievements-list li {
+  font-size: 0.9375rem;
+  color: hsl(var(--muted-foreground));
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.timeline-card__achievements-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: hsl(var(--primary));
+  font-weight: 600;
+}
+
+/* Tags */
+.timeline-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-card__tag {
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Connection Dot */
+.timeline-card__dot {
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: hsl(var(--primary));
+  border: 4px solid hsl(var(--background));
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2);
+}
+
+/* Dark Mode Enhancements */
+.dark .horizontal-timeline__label {
+  font-family: var(--font-mono);
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+}
+
+.dark .horizontal-timeline__title {
+  font-family: var(--font-mono);
+  text-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+}
+
+.dark .horizontal-timeline__arrow {
+  text-shadow: 0 0 15px hsl(var(--primary) / 0.5);
+}
+
+.dark .timeline-card {
+  background: hsl(var(--card) / 0.6);
+  backdrop-filter: blur(12px);
+  border-color: hsl(var(--border) / 0.5);
+}
+
+.dark .timeline-card:hover {
+  box-shadow:
+    0 12px 32px hsl(var(--primary) / 0.3),
+    0 0 60px hsl(var(--primary) / 0.15);
+  border-color: hsl(var(--primary));
+}
+
+.dark .timeline-card__title {
+  font-family: var(--font-mono);
+}
+
+.dark .timeline-card__year {
+  text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+}
+
+.dark .timeline-card__dot {
+  box-shadow:
+    0 0 0 4px hsl(var(--primary) / 0.3),
+    0 0 20px hsl(var(--primary) / 0.6);
+}
+
+.dark .timeline-progress::after {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.8);
+}
+
+/* Mobile Responsive - Stack Vertically */
+@media (max-width: 1024px) {
+  .horizontal-timeline {
+    padding-top: 1.5rem;
+  }
+
+  .horizontal-timeline__header {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .horizontal-timeline__wrapper {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    align-items: stretch;
+  }
+
+  .timeline-progress {
+    display: none;
+  }
+
+  .timeline-cards {
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 0;
+  }
+
+  .timeline-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .timeline-card__dot {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .horizontal-timeline {
+    padding-top: 2rem;
+  }
+
+  .horizontal-timeline__header {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .horizontal-timeline__wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .timeline-cards {
+    gap: 1.5rem;
+  }
+
+  .timeline-card {
+    padding: 1.5rem;
+  }
+
+  .timeline-card__year {
+    font-size: 1.5rem;
+  }
+
+  .timeline-card__title {
+    font-size: 1.5rem;
+  }
+
+  .timeline-card__description {
+    font-size: 0.9375rem;
+  }
+
+  .timeline-card__achievements-list li {
+    font-size: 0.875rem;
+  }
+}

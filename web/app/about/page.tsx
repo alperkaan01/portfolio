@@ -1,4 +1,5 @@
 import './about.css';
+import HorizontalTimeline from '@/components/custom/horizontal-timeline/horizontal-timeline';
 
 export default function AboutPage() {
   return (
@@ -20,6 +21,9 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+
+      {/* Horizontal Timeline Section */}
+      <HorizontalTimeline />
     </main>
   );
 }

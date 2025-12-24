@@ -1,27 +1,31 @@
 import Link from 'next/link';
 import { ThemeToggle } from './theme-toggle';
+import { ROUTES } from '@/constants/routes';
 import './navbar.css';
 
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <div className="navbar__brand">
+      <Link href={ROUTES.HOME} className="navbar__brand">
         <span className="navbar__name">Alper Odabasoglu</span>
-      </div>
+      </Link>
       <div className="navbar__links">
-        <Link href="#about" className="navbar__link">
+        <Link href={ROUTES.ABOUT} className="navbar__link">
           About
         </Link>
-        <Link href="#services" className="navbar__link">
+        <Link href={ROUTES.SERVICES} className="navbar__link">
           Services
         </Link>
-        <Link href="#content" className="navbar__link">
+        <Link href={ROUTES.BLOG} className="navbar__link">
+          Blog
+        </Link>
+        <Link href={ROUTES.CONTENT} className="navbar__link">
           Content
         </Link>
-        <Link href="#projects" className="navbar__link">
+        <Link href={ROUTES.PROJECTS} className="navbar__link">
           Projects
         </Link>
-        <Link href="#contact" className="navbar__link">
+        <Link href={ROUTES.CONTACT} className="navbar__link">
           Contact
         </Link>
         <ThemeToggle />

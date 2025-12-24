@@ -1,0 +1,83 @@
+/* About Page Styles */
+.about-page {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Hero Section */
+.about-hero {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+  background: hsl(var(--background));
+  position: relative;
+}
+
+.about-hero__container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 2rem;
+  background: hsl(var(--surface) / 0.5);
+}
+
+.about-hero__badge-icon {
+  font-size: 1.25rem;
+}
+
+.about-hero__title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: hsl(var(--foreground));
+}
+
+.about-hero__title-highlight {
+  color: hsl(var(--primary));
+  position: relative;
+}
+
+.about-hero__subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  color: hsl(var(--muted-foreground));
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Dark mode specific styles */
+.dark .about-hero__title-highlight {
+  text-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: 50vh;
+    padding: 4rem 1.5rem 3rem;
+  }
+
+  .about-hero__badge {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.875rem;
+  }
+
+  .about-hero__subtitle {
+    font-size: 1.125rem;
+  }
+}

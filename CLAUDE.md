@@ -1,13 +1,19 @@
 # Portfolio Project - Claude Code Reference
 
+## Important Notes for AI Agents
+
+**DO NOT** run `npm run dev` or similar development server commands. The user manages these manually. Focus only on code implementation.
+
 ## Build & Run Commands
+
+**Note:** These commands are documented for reference, but AI agents should NOT execute dev server commands.
 
 ```bash
 # Navigate to web directory first if you are not already there
 cd web
 
 # Development
-npm run dev              # Start dev server (http://localhost:3000)
+npm run dev              # Start dev server (http://localhost:3000) - USER RUNS THIS
 
 # Production
 npm run build            # Build for production

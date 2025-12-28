@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './skills-section.css';
@@ -12,11 +11,13 @@ interface Skill {
   name: string;
   logo?: string;
   level?: 'expert' | 'advanced' | 'intermediate';
+  featured?: boolean;
 }
 
 interface SkillCategory {
   title: string;
   icon: string;
+  description: string;
   skills: Skill[];
 }
 
@@ -24,21 +25,23 @@ const skillsData: SkillCategory[] = [
   {
     title: 'AI & Automation',
     icon: '🤖',
+    description: 'Building intelligent solutions with cutting-edge AI tools',
     skills: [
-      { name: 'Claude', logo: '/assets/claude-logo.png', level: 'expert' },
-      { name: 'ChatGPT', logo: '/assets/openai-logo.png', level: 'expert' },
+      { name: 'Claude', logo: '/assets/claude-logo.png', level: 'expert', featured: true },
+      { name: 'ChatGPT', logo: '/assets/openai-logo.png', level: 'expert', featured: true },
+      { name: 'n8n', logo: '/assets/n8n-logo.png', level: 'advanced', featured: true },
+      { name: 'MCP', logo: '/assets/mcp-logo.png', level: 'advanced', featured: true },
       { name: 'Gemini', level: 'expert' },
       { name: 'LangChain', level: 'advanced' },
       { name: 'AI Agents', level: 'expert' },
-      { name: 'n8n', logo: '/assets/n8n-logo.png', level: 'advanced' },
-      { name: 'MCP', logo: '/assets/mcp-logo.png', level: 'advanced' },
     ]
   },
   {
-    title: 'Frontend',
+    title: 'Frontend Development',
     icon: '⚡',
+    description: 'Crafting beautiful, performant user interfaces',
     skills: [
-      { name: 'Next.js', logo: '/assets/nextjs-logo.png', level: 'expert' },
+      { name: 'Next.js', logo: '/assets/nextjs-logo.png', level: 'expert', featured: true },
       { name: 'React', level: 'expert' },
       { name: 'TypeScript', level: 'expert' },
       { name: 'Tailwind CSS', level: 'expert' },
@@ -49,21 +52,23 @@ const skillsData: SkillCategory[] = [
   {
     title: 'Backend & Data',
     icon: '⚙️',
+    description: 'Architecting robust server-side solutions',
     skills: [
-      { name: 'Python', logo: '/assets/python-logo.png', level: 'expert' },
-      { name: 'FastAPI', logo: '/assets/fastapi-logo.svg', level: 'expert' },
+      { name: 'Python', logo: '/assets/python-logo.png', level: 'expert', featured: true },
+      { name: 'FastAPI', logo: '/assets/fastapi-logo.svg', level: 'expert', featured: true },
+      { name: 'Supabase', logo: '/assets/supabase-logo.png', level: 'advanced', featured: true },
       { name: 'Node.js', level: 'advanced' },
       { name: 'PostgreSQL', level: 'advanced' },
-      { name: 'Supabase', logo: '/assets/supabase-logo.png', level: 'advanced' },
       { name: 'REST APIs', level: 'expert' },
     ]
   },
   {
     title: 'DevOps & Cloud',
     icon: '☁️',
+    description: 'Deploying and scaling applications with confidence',
     skills: [
-      { name: 'AWS', logo: '/assets/aws-logo.png', level: 'advanced' },
-      { name: 'Vercel', logo: '/assets/vercel-logo.png', level: 'expert' },
+      { name: 'AWS', logo: '/assets/aws-logo.png', level: 'advanced', featured: true },
+      { name: 'Vercel', logo: '/assets/vercel-logo.png', level: 'expert', featured: true },
       { name: 'Docker', level: 'advanced' },
       { name: 'Git', level: 'expert' },
       { name: 'CI/CD', level: 'advanced' },
@@ -72,9 +77,10 @@ const skillsData: SkillCategory[] = [
   {
     title: 'Tools & Workflow',
     icon: '🛠️',
+    description: 'Maximizing productivity with modern development tools',
     skills: [
-      { name: 'Claude Code', logo: '/assets/claude-logo.png', level: 'expert' },
-      { name: 'Cursor', logo: '/assets/cursor-logo.png', level: 'expert' },
+      { name: 'Claude Code', logo: '/assets/claude-logo.png', level: 'expert', featured: true },
+      { name: 'Cursor', logo: '/assets/cursor-logo.png', level: 'expert', featured: true },
       { name: 'VS Code', level: 'expert' },
       { name: 'Figma', level: 'advanced' },
       { name: 'Linear', level: 'advanced' },
@@ -92,42 +98,42 @@ export default function SkillsSection() {
     const categories = sectionRef.current.querySelectorAll('.skills-category');
 
     const ctx = gsap.context(() => {
-      categories.forEach((category, index) => {
-        // Animate category cards
-        gsap.fromTo(category,
+      categories.forEach((category) => {
+        // Animate category title
+        const title = category.querySelector('.skills-category__title');
+        gsap.fromTo(title,
           {
             opacity: 0,
-            y: 50,
+            y: 10,
           },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            delay: index * 0.1,
+            duration: 0.5,
             scrollTrigger: {
               trigger: category,
-              start: 'top 85%',
+              start: 'top 80%',
               toggleActions: 'play none none none',
             }
           }
         );
 
-        // Animate skill items with stagger
+        // Animate skill items
         const skills = category.querySelectorAll('.skill-item');
         gsap.fromTo(skills,
           {
             opacity: 0,
-            x: -20,
+            y: 10,
           },
           {
             opacity: 1,
-            x: 0,
+            y: 0,
             duration: 0.4,
-            stagger: 0.05,
-            delay: index * 0.1 + 0.2,
+            stagger: 0.03,
+            delay: 0.2,
             scrollTrigger: {
               trigger: category,
-              start: 'top 85%',
+              start: 'top 75%',
               toggleActions: 'play none none none',
             }
           }
@@ -142,43 +148,34 @@ export default function SkillsSection() {
     <section className="skills-section" ref={sectionRef}>
       <div className="skills-section__container">
         <div className="skills-section__header">
-          <span className="skills-section__label">// EXPERTISE</span>
-          <h2 className="skills-section__title">Skills & Tools</h2>
-          <p className="skills-section__subtitle">
-            Technologies and tools I use to bring ideas to life
-          </p>
+          <div className="skills-section__header-content">
+            <span className="skills-section__label">// EXPERTISE</span>
+            <h2 className="skills-section__title">
+              Tools & <span className="skills-section__title-highlight">Technology</span>
+            </h2>
+            <p className="skills-section__subtitle">
+              While tools evolve, creativity and adaptability remain the ultimate constants.
+            </p>
+          </div>
         </div>
 
-        <div className="skills-section__grid">
+        <div className="skills-section__content">
           {skillsData.map((category, idx) => (
             <div key={idx} className="skills-category">
               <div className="skills-category__header">
-                <span className="skills-category__icon">{category.icon}</span>
-                <h3 className="skills-category__title">{category.title}</h3>
+                <div className="skills-category__icon">{category.icon}</div>
+                <div>
+                  <h3 className="skills-category__title">{category.title}</h3>
+                  <p className="skills-category__description">{category.description}</p>
+                </div>
               </div>
-
-              <div className="skills-category__items">
-                {category.skills.map((skill, skillIdx) => (
-                  <div key={skillIdx} className="skill-item">
-                    {skill.logo ? (
-                      <div className="skill-item__logo">
-                        <Image
-                          src={skill.logo}
-                          alt={`${skill.name} logo`}
-                          width={24}
-                          height={24}
-                          className="skill-item__logo-image"
-                        />
-                      </div>
-                    ) : (
-                      <div className="skill-item__dot"></div>
-                    )}
+              <div className="skills-category__list">
+                {category.skills.map((skill, i) => (
+                  <div
+                    key={i}
+                    className={`skill-item ${skill.featured ? 'skill-item--featured' : ''} skill-item--${skill.level || 'intermediate'}`}
+                  >
                     <span className="skill-item__name">{skill.name}</span>
-                    {skill.level && (
-                      <span className={`skill-item__level skill-item__level--${skill.level}`}>
-                        {skill.level}
-                      </span>
-                    )}
                   </div>
                 ))}
               </div>

@@ -164,3 +164,40 @@
   transform: rotate(15deg);
 }
 
+/* Social Links */
+.navbar__social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--surface) / 0.5);
+  color: hsl(var(--foreground));
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.navbar__social-link:hover {
+  background: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary) / 0.3);
+  transform: scale(1.05);
+}
+
+.dark .navbar__social-link:hover {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+}
+
+.navbar__social-link:active {
+  transform: scale(0.95);
+}
+

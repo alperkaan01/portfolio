@@ -7,7 +7,7 @@ export default function PersonalIntro() {
       <div className="personal-intro__container">
         <div className="personal-intro__image-wrapper">
           <Image
-            src="/assets/guitar-play-pp.png"
+            src="/assets/guitar-pp.png"
             alt="Alper playing guitar"
             width={400}
             height={400}

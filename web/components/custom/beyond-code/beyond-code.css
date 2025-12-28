@@ -1,0 +1,245 @@
+/* Beyond Code Section */
+.beyond-code {
+  width: 100%;
+  min-height: auto;
+  padding: 6rem 2rem;
+  background: hsl(var(--background));
+  position: relative;
+}
+
+.beyond-code__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.beyond-code__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.beyond-code__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+  display: block;
+}
+
+.beyond-code__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  margin-bottom: 1rem;
+}
+
+.beyond-code__subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: hsl(var(--muted-foreground));
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.beyond-code__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Interest Card */
+.interest-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.interest-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)),
+    hsl(var(--primary) / 0.5)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.interest-card:hover::before {
+  transform: scaleX(1);
+}
+
+.interest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+/* Icon */
+.interest-card__icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.interest-card:nth-child(2) .interest-card__icon {
+  animation-delay: 0.5s;
+}
+
+.interest-card:nth-child(3) .interest-card__icon {
+  animation-delay: 1s;
+}
+
+/* Title */
+.interest-card__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* Description */
+.interest-card__description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.5rem;
+}
+
+/* Highlights */
+.interest-card__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.interest-card__highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.interest-card__highlight-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background: hsl(var(--primary));
+  border-radius: 50%;
+}
+
+.interest-card__highlight-text {
+  font-size: 0.9375rem;
+  color: hsl(var(--foreground) / 0.8);
+  font-weight: 500;
+}
+
+/* Dark Mode Enhancements */
+.dark .beyond-code__label {
+  font-family: var(--font-mono);
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+}
+
+.dark .beyond-code__title {
+  font-family: var(--font-mono);
+  text-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+}
+
+.dark .interest-card {
+  background: hsl(var(--card) / 0.6);
+  backdrop-filter: blur(12px);
+  border-color: hsl(var(--border) / 0.5);
+}
+
+.dark .interest-card:hover {
+  box-shadow:
+    0 12px 32px hsl(var(--primary) / 0.2),
+    0 0 40px hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary));
+}
+
+.dark .interest-card__title {
+  font-family: var(--font-mono);
+}
+
+.dark .interest-card__icon {
+  filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.3));
+}
+
+.dark .interest-card__highlight-dot {
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.6);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .beyond-code {
+    padding: 5rem 1.5rem;
+  }
+
+  .beyond-code__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .beyond-code {
+    padding: 4rem 1.5rem;
+  }
+
+  .beyond-code__header {
+    margin-bottom: 3rem;
+  }
+
+  .beyond-code__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .interest-card {
+    padding: 2rem;
+  }
+
+  .interest-card__icon {
+    font-size: 2.5rem;
+  }
+
+  .interest-card__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .beyond-code {
+    padding: 3rem 1rem;
+  }
+
+  .interest-card {
+    padding: 1.5rem;
+  }
+}

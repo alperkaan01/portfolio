@@ -15,9 +15,22 @@ interface Interest {
   highlights: string[];
 }
 
+/**
+ * TODO: Replace placeholder images with unique images for each interest
+ *
+ * Current state: All three interests use the same guitar image (/assets/guitar-play-pp.png)
+ *
+ * Required unique images:
+ * 1. Music & Guitar: /assets/guitar-play-pp.png (current - OK)
+ * 2. Specialty Coffee: /assets/coffee-pp.png (NEEDED - replace with coffee/brewing image)
+ * 3. Sci-Fi & Books: /assets/books-pp.png (NEEDED - replace with reading/sci-fi image)
+ *
+ * Image style: Keep consistent with guitar image (Disney-style illustration, warm tones)
+ * Dimensions: 400x400px, optimized for web
+ */
 const interests: Interest[] = [
   {
-    image: '/assets/guitar-play-pp.png', // Placeholder - will be replaced with Disney-style guitar image
+    image: '/assets/guitar-play-pp.png',
     title: 'Music & Guitar',
     description: 'Playing guitar is my creative outlet. There\'s something meditative about learning a new piece or improvising late at night.',
     highlights: [
@@ -27,7 +40,7 @@ const interests: Interest[] = [
     ]
   },
   {
-    image: '/assets/guitar-play-pp.png', // Placeholder - will be replaced with Disney-style coffee image
+    image: '/assets/guitar-play-pp.png', // TODO: Replace with /assets/coffee-pp.png
     title: 'Specialty Coffee',
     description: 'A good cup of coffee is the foundation of a productive day. I love exploring different brewing methods and bean origins.',
     highlights: [
@@ -37,7 +50,7 @@ const interests: Interest[] = [
     ]
   },
   {
-    image: '/assets/guitar-play-pp.png', // Placeholder - will be replaced with Disney-style books image
+    image: '/assets/guitar-play-pp.png', // TODO: Replace with /assets/books-pp.png
     title: 'Sci-Fi & Books',
     description: 'Science fiction expands my imagination and often inspires my approach to technology and problem-solving.',
     highlights: [

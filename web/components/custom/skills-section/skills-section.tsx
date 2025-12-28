@@ -98,18 +98,19 @@ export default function SkillsSection() {
     const categories = sectionRef.current.querySelectorAll('.skills-category');
 
     const ctx = gsap.context(() => {
-      categories.forEach((category) => {
-        // Animate category title
-        const title = category.querySelector('.skills-category__title');
-        gsap.fromTo(title,
+      categories.forEach((category, idx) => {
+        // Animate category header (icon + title + description)
+        const header = category.querySelector('.skills-category__header');
+        gsap.fromTo(header,
           {
             opacity: 0,
-            y: 10,
+            x: -20,
           },
           {
             opacity: 1,
-            y: 0,
-            duration: 0.5,
+            x: 0,
+            duration: 0.6,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: category,
               start: 'top 80%',
@@ -118,18 +119,25 @@ export default function SkillsSection() {
           }
         );
 
-        // Animate skill items
+        // Animate skill items with enhanced stagger
         const skills = category.querySelectorAll('.skill-item');
         gsap.fromTo(skills,
           {
             opacity: 0,
+            scale: 0.9,
             y: 10,
           },
           {
             opacity: 1,
+            scale: 1,
             y: 0,
             duration: 0.4,
-            stagger: 0.03,
+            stagger: {
+              amount: 0.3,
+              from: 'start',
+              ease: 'power1.inOut'
+            },
+            ease: 'back.out(1.2)',
             delay: 0.2,
             scrollTrigger: {
               trigger: category,
@@ -169,11 +177,14 @@ export default function SkillsSection() {
                   <p className="skills-category__description">{category.description}</p>
                 </div>
               </div>
-              <div className="skills-category__list">
+              <div className="skills-category__list" role="list">
                 {category.skills.map((skill, i) => (
                   <div
                     key={i}
                     className={`skill-item ${skill.featured ? 'skill-item--featured' : ''} skill-item--${skill.level || 'intermediate'}`}
+                    tabIndex={0}
+                    role="listitem"
+                    aria-label={`${skill.name} - ${skill.level || 'intermediate'} level`}
                   >
                     <span className="skill-item__name">{skill.name}</span>
                   </div>
